@@ -12,10 +12,10 @@ public class ProjectileEquation {
     public Vector2 startVelocity;  
     public Vector2 startPoint;  
   
-    public float getX(float t) {  
+    public float getX(float t) {
     	//System.out.println(startVelocity.x);
         return startVelocity.x * t + startPoint.x;  
-    }  
+    }
   
     public float getY(float t) {  
         return 0.5f * gravity * t * t + startVelocity.y * t + startPoint.y;  
