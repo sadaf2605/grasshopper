@@ -7,10 +7,10 @@ import com.sadafnoor.game.grasshooper.models.*;
  * This class is dedicated to maintain singleton grasshooper class and many plants accessible.
  */
 public class World {
-	GrassHooper grasshooper=new GrassHooper(new Vector2(50f,200f), new Vector2(1f,1f));
+	GrassHooper grasshooper=new GrassHooper(new Vector2(50f,160f), new Vector2(50f,50f));
 	
-	Plant redPlant1=new Plant(new Vector2(1f,0f), new Vector2(2f,5f), Plant.PlantColor.RED);
-	Plant redPlant2=new Plant(new Vector2(3f,0f), new Vector2(2f,5f), Plant.PlantColor.RED);
+	Plant redPlant1=new Plant(new Vector2(50f,0f), new Vector2(80f,200f), Plant.PlantColor.RED);
+	Plant redPlant2=new Plant(new Vector2(200f,0f), new Vector2(80f,200f), Plant.PlantColor.RED);
 	
 	
 	/*

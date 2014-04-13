@@ -33,12 +33,24 @@ public class GameScreen implements Screen{
 	public void render(float delta) {
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		
-		world.getGrassHooper().update(delta);
-		
+
+
+
+if (!renderer.collisionDetected())
+{	
+	System.out.println(Gdx.input.getY());
+	System.out.println("Plant: ( "+world.getPlants()[1].getX()+", "+world.getPlants()[1].getY());
+	System.out.println("Grasshooper: ("+world.getGrassHooper().getX()+", "+world.getGrassHooper().getY()+")");
+	
+	world.getGrassHooper().update(delta);
+}else{
+	System.out.println("collision detected"); 
+}
 		batch.begin();
 		renderer.renderPlants(batch);
 		renderer.renderGrassHooper(batch);
+	
+		
 		//renderer.renderDebugLine(batch);
 		//renderer.renderBackground();		
 		

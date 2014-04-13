@@ -84,7 +84,7 @@ public class Renderer {
 	 */
 	public void renderGrassHooper(SpriteBatch batch) {
 
-		batch.draw(ghoopertexture, grassHooper.getX()*10f/Gdx.graphics.getWidth(), (grassHooper.getY())*7f/Gdx.graphics.getHeight(), grassHooper.getWidth(),grassHooper.getHeight());
+		batch.draw(ghoopertexture, grassHooper.getX()*10f/Gdx.graphics.getWidth(), (grassHooper.getY())*7f/Gdx.graphics.getHeight(), grassHooper.getWidth()*10f/Gdx.graphics.getWidth(),grassHooper.getHeight()*7f/Gdx.graphics.getHeight());
 		
 	}
 	
@@ -96,7 +96,12 @@ public class Renderer {
 				case RED: colorPlantTexture=redPlantTexture; break;
 				default: colorPlantTexture=null;
 			}	
-			batch.draw(colorPlantTexture, p.getX(), p.getY(), p.getWidth(),p.getHeight());
+			batch.draw(colorPlantTexture, 
+							p.getX()*10f/Gdx.graphics.getWidth(), 
+							p.getY()*7f/Gdx.graphics.getHeight()*7f/Gdx.graphics.getHeight(), 
+							p.getWidth()*10f/Gdx.graphics.getWidth() ,
+							p.getHeight()*7f/Gdx.graphics.getHeight()
+					);
 		}
 		
 	}
@@ -114,6 +119,10 @@ public class Renderer {
 		shapeRenderer.line(grassHooper.getX()*10f/Gdx.graphics.getWidth(), grassHooper.getY(),Gdx.input.getX()*10f/Gdx.graphics.getWidth(), (Gdx.graphics.getHeight()-Gdx.input.getY())*7f/Gdx.graphics.getHeight());
 		shapeRenderer.end();
 		
+	}
+
+	public boolean collisionDetected() {
+		return ((world.getGrassHooper().getY()<=180f && world.getGrassHooper().getY()>=120f) && (world.getGrassHooper().getX() > world.getPlants()[1].getX() && world.getGrassHooper().getX() < world.getPlants()[1].getX()+ world.getPlants()[1].getWidth()));
 	}
 	
 }
